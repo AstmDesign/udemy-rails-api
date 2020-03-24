@@ -23,7 +23,7 @@ class Api::V1::ReviewsController < ApplicationController
       review_serializer = parse_json review
       json_response "Created review successfully", true, {review: review_serializer}, :ok
     else
-      json_response "Created review fail", false, {}, :unproccessable_entity
+      json_response "Created review fail", false, {}, :unprocessable_entity
     end
   end
 
@@ -33,7 +33,7 @@ class Api::V1::ReviewsController < ApplicationController
         review_serializer = parse_json @review
         json_response "Updated review successfully", true, {review: review_serializer}, :ok
       else
-        json_response "Updated review fail", false, {}, :unproccessable_entity
+        json_response "Updated review fail", false, {}, :unprocessable_entity
       end
     else
       json_response "You dont have permission to do this", false, {}, :unauthorized
@@ -45,7 +45,7 @@ class Api::V1::ReviewsController < ApplicationController
       if @review.destroy
         json_response "Deleted review successfully", true, {}, :ok
       else
-        json_response "Deleted review fail", false, {}, :unproccessable_entity
+        json_response "Deleted review fail", false, {}, :unprocessable_entity
       end
     else
       json_response "You dont have permission to do this", false, {}, :unauthorized
